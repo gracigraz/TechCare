@@ -9,6 +9,7 @@ import chat from "../../assets/icons/chat.svg";
 import calendar from "../../assets/icons/calendar.svg";
 import card from "../../assets/icons/credit_card.svg";
 import settings from "../../assets/icons/settings.svg";
+import more from "../../assets/icons/more_vertical.svg";
 
 const Header: React.FC = () => {
 	return (
@@ -20,7 +21,7 @@ const Header: React.FC = () => {
 					<img src={home} alt="icon of a house" />
 					<span className="header__text">Overview</span>
 				</li>
-				<li className="header__item">
+				<li className="header__item header__item--selected">
 					<img src={patients} alt="icon of two people's bust" />
 					<span className="header__text">Patients</span>
 				</li>
@@ -44,7 +45,7 @@ const Header: React.FC = () => {
 					<p className="header__doctor-specialty">General Practitioner</p>
 				</div>
 				<img className="header__settings" src={settings} alt="settings icon" />
-				<span className="header__dots">...</span>
+				<img className="header__more" src={more} alt="more three dots icon" />
 			</div>
 		</header>
 	);
