@@ -1,11 +1,15 @@
-
-
-.home{
-    display: flex;
-    flex-direction: column;
-    // justify-content: center;
-    // align-items: center;
-    // height: 100vh;
-    background-color: #F6F7F8;
-    padding: 18px;
+.home {
+	display: flex;
+	flex-direction: column;
+	// justify-content: center;
+	// align-items: center;
+	// height: 100vh;
+	background-color: #f6f7f8;
+	padding: 18px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	&__patient-info {
+		
+	}
 }
