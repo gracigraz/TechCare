@@ -1,0 +1,36 @@
+.results{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background: #FFFFFF;
+    border-radius: 1rem;
+    padding: 1.25rem;
+    &__heading{
+        font-size: 24px;
+        letter-spacing: 0px;
+        font-weight: 800;
+        color: #072635;
+    }
+    &__list{
+        list-style: none;
+    }
+    &__item{
+        display: flex;
+        justify-content: space-around;
+        :hover{
+            background-color:  #F6F7F8;
+        }
+    }
+    &__lab{
+        font-size: .8125rem;
+        font-style: "regular";
+        letter-spacing: 0px;
+        color: #072635;
+        text-transform: capitalize;
+        font-weight: normal;
+
+    }
+    &__icon{
+
+    }
+}

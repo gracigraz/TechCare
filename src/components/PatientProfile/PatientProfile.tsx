@@ -24,7 +24,7 @@ interface Patient {
 const PatientProfile: React.FC<PatientProfileProps> = ({ patient}) => {
 	return (
 		<div className="patient-profile">
-			<img className="patient-profile-img" src={jessica} alt="Patient profile" />
+			<img className="patient-profile__img" src={jessica} alt="Patient profile" />
 			<h1 className="patient-profile__name">{patient.name}</h1>
 			<ul className="patient-profile__list">
 				<li className="patient-profile__item">

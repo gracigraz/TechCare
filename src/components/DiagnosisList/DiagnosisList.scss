@@ -1,0 +1,28 @@
+.diagnosis{
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    border-radius: 1rem;
+    &__heading{
+        font-size: 1.5rem;
+        font-weight: 800;
+        text-transform: capitalize;
+
+    }
+    &__list{
+        list-style: none;
+
+    }
+    &__item{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__name{
+    }
+    &__description{
+    }
+    &__status{
+        
+    }
+}

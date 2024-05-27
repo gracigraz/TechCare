@@ -1,0 +1,119 @@
+
+.history{
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    border-radius: 1rem;
+    &__heading{
+        font-size: 1.5rem;
+        letter-spacing: 0px;
+        color: #072635;
+        font-weight: 800;
+        font-style: normal;
+    }
+    &__graph-section{
+        background: #F4F0FE;
+        border-radius: .75rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+    &__subheading{
+        font-size: 1.125rem;
+        letter-spacing: 0px;
+        color: #072635;
+        text-transform: capitalize;
+    }
+    &__left-section, &__right-section{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+    }
+    &__subheading-wrapper{
+        display: flex;
+        justify-content: space-between;
+
+    }
+    &__subheading{
+
+    }
+    &__timeline{
+        display: flex;
+
+    }
+    &__duration{
+
+    }
+    &__graph{
+
+    }
+
+    &__blood-pressure{
+
+    }
+    &__type-container{
+
+    }
+    &__type{
+
+    }
+    &__icon{
+
+    }
+    &__pressure-value{
+
+    }
+    &__result{
+    }
+    &__pressure-level{
+
+    }
+
+    &__cards{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+
+    }
+    &__card{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-start;
+
+    }
+    &__info{
+        display: flex;
+        flex-direction: column;
+
+    }
+    &__title{
+        letter-spacing: 0px;
+        color: #072635;
+        text-transform: capitalize;
+        font-size: 1rem;
+        font-weight: medium;
+    }
+    &__value{
+        color: #072635;
+        font-size: 1.875rem;
+        font-weight: 800;
+        text-transform: capitalize;
+
+    }
+    &__level{
+        font-size: .875rem;
+        letter-spacing: 0px;
+        color: #072635;
+        text-transform: capitalize;
+        font-weight: 400;
+
+
+    }
+
+}
+
