@@ -2,12 +2,17 @@ import React from "react";
 
 import "./DiagnosisHistory.scss";
 
-import respiratory from "../../assets/images/respiratory_rate.svg"
+
 import low from "../../assets/images/low.svg"
 import high from "../../assets/images/high.svg"
-import more from "../../assets/more_options.svg"
+import expand from "../../assets/more_options.svg"
 import pink from "../../assets/pink_dot.svg"
 import purple from "../../assets/purple_dot.svg"
+import heartBPM from '../../assets/icons/heartBPM.svg'
+import respiratory from '../../assets/icons/respiratory_rate.svg'
+import temperature from "../../assets/icons/temperature.svg"
+import arrow_up from "../../assets/icons/arrow_up.svg"
+import arrow_down from "../../assets/icons/arrow_down.svg"
 
 
 
@@ -24,7 +29,7 @@ const DiagnosisHistory: React.FC = () => {
                         <h3 className="history__subheading">Blood Pressure</h3>
                         <div className="history__timeline">
                             <span className="history__duration">Last 6 months</span>
-                            <img className="history__icon" src={more} alt="more options"/>
+                            <img className="history__icon" src={expand} alt="expan more options"/>
                         </div>
                     </div>
                     <div className="history__graph"></div>
