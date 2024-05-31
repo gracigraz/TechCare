@@ -1,5 +1,6 @@
 import React from 'react';
-import download from '../../assets/download.svg'
+import  './LabResults.scss'
+ import download from '../../assets/icons/download.svg'
 
 const LabResults: React.FC = () => {
     return (

@@ -22,7 +22,10 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-       
+        &:hover{
+        background-color: #D8FCF7;
+
+       }
 
     }
     &__group{

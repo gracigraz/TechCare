@@ -3,16 +3,15 @@ import React from "react";
 import "./DiagnosisHistory.scss";
 
 
-import low from "../../assets/images/low.svg"
-import high from "../../assets/images/high.svg"
-import expand from "../../assets/more_options.svg"
-import pink from "../../assets/pink_dot.svg"
-import purple from "../../assets/purple_dot.svg"
-import heartBPM from '../../assets/icons/heartBPM.svg'
+import low from "../../assets/icons/arrow_down.svg"
+import high from "../../assets/icons/arrow_up.svg"
+import expand from "../../assets/icons/expand.svg"
+// import heartBPM from '../../assets/icons/heartBPM.svg'
 import respiratory from '../../assets/icons/respiratory_rate.svg'
-import temperature from "../../assets/icons/temperature.svg"
-import arrow_up from "../../assets/icons/arrow_up.svg"
-import arrow_down from "../../assets/icons/arrow_down.svg"
+import { Graph } from "../Graph/Graph";
+// import temperature from "../../assets/icons/temperature.svg"
+// import arrow_up from "../../assets/icons/arrow_up.svg"
+// import arrow_down from "../../assets/icons/arrow_down.svg"
 
 
 
@@ -32,12 +31,13 @@ const DiagnosisHistory: React.FC = () => {
                             <img className="history__icon" src={expand} alt="expan more options"/>
                         </div>
                     </div>
-                    <div className="history__graph"></div>
+                    {/* <div className="history__graph"></div> */}
+                    <Graph />
                 </div>
                 <div className="history__right-section">
-                    <div  className="history__blood-pressure">
+                    <div  className="history__blood-pressure history__blood-pressure--border">
                         <div className="history__type-container">
-                            <img className="history__icon" src={pink} alt="pink circle"/>
+                        <div className="history__data-point history__data-point--pink"></div>
                             <span  className="history__type">Systolic</span>
                         </div>
                         <p className="history__pressure-value">160</p>
@@ -48,7 +48,7 @@ const DiagnosisHistory: React.FC = () => {
                     </div>
                     <div  className="history__blood-pressure">
                         <div className="history__type-container">
-                            <img className="history__icon" src={purple} alt="purple circle"/>
+                            <div className="history__data-point history__data-point--purple"></div>
                             <span  className="history__type">Diastolic</span>
                         </div>
                         <p className="history__pressure-value">78</p>

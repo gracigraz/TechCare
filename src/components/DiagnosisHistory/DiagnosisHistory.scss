@@ -1,119 +1,169 @@
-
-.history{
-    display: flex;
-    flex-direction: column;
-    background: #FFFFFF;
-    border-radius: 1rem;
-    &__heading{
-        font-size: 1.5rem;
-        letter-spacing: 0px;
-        color: #072635;
-        font-weight: 800;
-        font-style: normal;
-    }
-    &__graph-section{
-        background: #F4F0FE;
-        border-radius: .75rem;
-        display: flex;
-        justify-content: space-between;
+.history {
+	display: flex;
+	flex-direction: column;
+	background-color: #ffffff;
+	border-radius: 1rem;
+	margin-bottom: 2rem;
+	padding: 1.25rem;
+	// width: 766px;
+	&__heading {
+		font-size: 1.5rem;
+		letter-spacing: 0px;
+		color: #072635;
+		font-weight: 800;
+		font-style: normal;
+	}
+	&__graph-section {
+		background-color: #f4f0fe;
+		border-radius: 0.75rem;
+		display: flex;
+		// justify-content: space-between;
+		align-items: flex-start;
+		padding: 1rem;
+	}
+	&__subheading {
+		font-size: 1.125rem;
+		letter-spacing: 0px;
+		color: #072635;
+		text-transform: capitalize;
+		margin-block-start: 0em;
+		margin-block-end: 0em;
+	}
+	&__left-section,
+	&__right-section {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+	}
+	&__right-section {
+        margin-left: 1rem;
+	}
+	&__subheading-wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+        margin-bottom: 28px;
+	}
+	&__subheading {
+	}
+	&__timeline {
+		display: flex;
         align-items: center;
+        gap:1rem;
+        margin-right: 1rem;
+	}
+	&__duration {
+		font-size: 0.875rem;
+		font-style: normal;
+		letter-spacing: 0px;
+		color: #072635;
+	}
+	&__data-point {
+		width: 0.875rem;
+		height: 0.875rem;
+		border-radius: 0.875rem;
+		border: 1px solid #ffffff;
+		&--pink {
+			background-color: #e66fd2;
+		}
+		&--purple {
+			background-color: #8c6fe6;
+		}
+	}
 
-    }
-    &__subheading{
-        font-size: 1.125rem;
-        letter-spacing: 0px;
-        color: #072635;
-        text-transform: capitalize;
-    }
-    &__left-section, &__right-section{
+	&__blood-pressure {
         display: flex;
         flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 0;
+        &--border {
+        padding-top: 0;
+        border-bottom: solid .0625rem #CBC8D4;
+        }
+  
+	}
+	&__type-container {
+        display: flex;
         justify-content: flex-start;
         align-items: center;
-
-    }
-    &__subheading-wrapper{
-        display: flex;
+        gap: .25rem;
+	}
+	&__type {
+        font: normal normal bold 14px/19px Manrope;
+        letter-spacing: 0px;
+        color: #072635;
+        text-transform: capitalize;
+        opacity: 1;
+	}
+	&__icon {
+		width: 0.6656rem;
+		height: 0.375rem;
+	}
+	&__pressure-value {
+		font: normal normal bold 22px/30px Manrope;
+		letter-spacing: 0px;
+		color: #072635;
+		text-transform: capitalize;
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+	}
+	&__result {
+        display:flex;
         justify-content: space-between;
-
-    }
-    &__subheading{
-
-    }
-    &__timeline{
-        display: flex;
-
-    }
-    &__duration{
-
-    }
-    &__graph{
-
-    }
-
-    &__blood-pressure{
-
-    }
-    &__type-container{
-
-    }
-    &__type{
-
-    }
-    &__icon{
-
-    }
-    &__pressure-value{
-
-    }
-    &__result{
-    }
-    &__pressure-level{
-
-    }
-
-    &__cards{
-        display: flex;
-        justify-content: space-around;
         align-items: center;
-
-
-    }
-    &__card{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: flex-start;
-
-    }
-    &__info{
-        display: flex;
-        flex-direction: column;
-
-    }
-    &__title{
+        gap:0.5rem;
+	}
+	&__pressure-level {
+        font: normal normal normal 14px/19px Manrope;
         letter-spacing: 0px;
         color: #072635;
-        text-transform: capitalize;
-        font-size: 1rem;
-        font-weight: medium;
-    }
-    &__value{
-        color: #072635;
-        font-size: 1.875rem;
-        font-weight: 800;
-        text-transform: capitalize;
+	}
 
-    }
-    &__level{
-        font-size: .875rem;
-        letter-spacing: 0px;
-        color: #072635;
-        text-transform: capitalize;
-        font-weight: 400;
-
-
-    }
-
+	&__cards {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+	}
+	&__card {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: flex-start;
+		border-radius: 0.75rem;
+		&--blue {
+			background-color: #e0f3fa;
+		}
+		&--orange {
+			background-color: #ffe6e9;
+		}
+		&--pink {
+			background-color: #ffe6f1;
+		}
+	}
+	&__info {
+		display: flex;
+		flex-direction: column;
+	}
+	&__title {
+		letter-spacing: 0px;
+		color: #072635;
+		text-transform: capitalize;
+		font-size: 1rem;
+		font-weight: medium;
+	}
+	&__value {
+		color: #072635;
+		font-size: 1.875rem;
+		font-weight: 800;
+		text-transform: capitalize;
+	}
+	&__level {
+		font-size: 0.875rem;
+		letter-spacing: 0px;
+		color: #072635;
+		text-transform: capitalize;
+		font-weight: 400;
+	}
 }
-

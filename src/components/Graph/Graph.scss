@@ -1,0 +1,9 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+.graph{
+    background-color: #F4F0FE;
+    width: 417px;
+    height: 187px;
+}

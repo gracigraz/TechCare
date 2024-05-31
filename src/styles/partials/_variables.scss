@@ -6,12 +6,27 @@ $desktop-breakpoint: 1280px;
 
 
 //primary colors
-$blue : #414f6b;
-$gray: #4d4d4d;
-$lightGray: #afb3bd;
-$black: #000;
+$black:  #072635;
+$lightGrayText: #707070;
+$lightGray: #D8FCF7;
 
-
-//secondary colors
+//secondary (background)colors
 $white: #ffffff;
-$lightBlue: #63769d;
+$lightPurple: #F4F0FE;
+$lightBlue: #E0F3FA;
+$lightOrange: #FFE6E9;
+$lightPink: #FFE6F1;
+$backgroundGray: #F6F7F8;
+$searchBarGray: #E3E4E6;
+$headingGray:#EDEDED;
+
+//active colors
+$lightGreen: #D8FCF7;
+$brightGreen: #01F0D0;
+
+//graph colors:
+$brightPink: #E66FD2;
+$darkPink: #C26EB4;
+$brightPurple: #8C6FE6;
+$darkPurple: #7E6CAB;
+$gray: #CBC8D4;

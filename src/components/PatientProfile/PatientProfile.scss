@@ -5,8 +5,12 @@
     width: 367px;
     display: flex;
 	flex-direction: column;
-    &__profile-img{
-        width: 12.5rem;
+    align-items: center;
+    &__img{
+         width: 12.5rem;
+         height: 12.5rem;
+         text-align: center;
+
     }
     &__name {
         color: #072635;
@@ -15,11 +19,13 @@
         font-style: normal;
         letter-spacing: 0px;
         font-weight: 800;
-    }
+        text-align: center;
+    } 
     &__list{
         justify-content: start;
         list-style: none;
         padding-inline-start: 0px;
+        align-items: flex-start;
     }
     &__item{
         display: flex;
