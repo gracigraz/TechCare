@@ -1,52 +1,76 @@
 import React from "react";
 import {useState, useEffect} from "react";
 import axios from "axios";
+
 import "./HomePage.scss";
+
 import Header from "../../components/Header/Header";
 import Patients from "../../components/Patients/Patients";
 import PatientProfile from "../../components/PatientProfile/PatientProfile";
-
-import lady from "../../assets/images/lady.png";
 import DiagnosisHistory from "../../components/DiagnosisHistory/DiagnosisHistory";
 import DiagnosisList from "../../components/DiagnosisList/DiagnosisList";
 import LabResults from "../../components/LabResults/LabResults";
 
-const Home: React.FC = () => {
-	// const [patient, setPatient] = useState<Patient | null>(null);
+import {Patient} from "../../types";
 
-	// useEffect(() => {
-	//   fetchPatientData();
-	// }, []);
+const Home: React.FC = () => {
+	const [patientsData, setPatientsData] = useState<Patient[]>([]);
+	const [jessicaTaylor, setJessicaTaylor] = useState<Patient | undefined>();
+	const username = process.env.REACT_APP_USERNAME;
+	const password = process.env.REACT_APP_PASSWORD;
+	const encodedCredentials = btoa(`${username}:${password}`);
+
+	useEffect(() => {
+		console.log("Fetching data...");
+		const fetchData = async () => {
+			try {
+				const result = await axios.get("https://fedskillstest.coalitiontechnologies.workers.dev", {
+					headers: {
+						Authorization: `Basic ${encodedCredentials}`,
+					},
+				});
+
+				setPatientsData(result.data);
+				const jessica = result.data.find((patient: Patient) => patient.name === "Jessica Taylor");
+				setJessicaTaylor(jessica);
+			} catch (error) {
+				if (axios.isAxiosError(error)) {
+					console.error("Axios error fetching data:", error.message);
+					if (error.response) {
+						// The request was made and the server responded with a status code
+						// that falls out of the range of 2xx
+						console.log("Response data:", error.response.data);
+						console.log("Status code:", error.response.status);
+						console.log("Headers:", error.response.headers);
+					} else if (error.request) {
+						// The request was made but no response was received
+						console.log("Request:", error.request);
+					} else {
+						// Something happened in setting up the request that triggered an Error
+						console.log("Error message:", error.message);
+					}
+				} else {
+					// Handle non-Axios errors
+					console.error("An unexpected error occurred:", error);
+				}
+			}
+		};
+
+		fetchData();
+	}, []);
+
 	return (
 		<>
 			<Header />
 			<main className="home">
-				<Patients
-					patients={[
-						{name: "John Doe", profile_picture: lady, gender: "Female", age: 18},
-						{name: "Jane Doe", profile_picture: lady, gender: "Female", age: 18},
-						{name: "John Smith", profile_picture: lady, gender: "Female", age: 21},
-					]}
-				/>
-
+				<Patients patients={patientsData} />
 				<section className="home__diagnosis-info">
 					<DiagnosisHistory />
-					<DiagnosisList />
+					<DiagnosisList patient={jessicaTaylor} />
 				</section>
 				<section className="home__patient-info">
-					<PatientProfile
-						patient={{
-							name: "Jessica Taylor",
-							gender: "Female",
-							age: 28,
-							profile_picture: "https://fedskillstest.ct.digital/4.png",
-							date_of_birth: "1996-08-23",
-							phone_number: "(415) 555-1234",
-							emergency_contact: "(415) 555-5678",
-							insurance_type: "Sunrise Health Assurance",
-						}}
-					/>
-                    <LabResults />
+					<PatientProfile patient={jessicaTaylor} />
+					<LabResults patient={jessicaTaylor} />
 				</section>
 			</main>
 		</>

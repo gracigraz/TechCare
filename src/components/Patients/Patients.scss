@@ -3,9 +3,10 @@
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border-radius: 1rem;
     padding: 1.75rem 4px 1.75rem 1.25rem; 
+    margin-top: .875rem;
 
     &__heading-wrapper{
-        padding: 1.75rem 1.25rem; 
+        // padding: 0 1.25rem 1.75rem 1.25rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -22,6 +23,7 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 2.25rem;
         &:hover{
         background-color: #D8FCF7;
 
@@ -29,11 +31,12 @@
 
     }
     &__group{
-       padding-right:10px;
-        max-height: 100px; 
+    //    padding-right:10px;
+        max-height: 700px; 
         overflow-y: auto;
         &::-webkit-scrollbar {
             width: 6px;
+            margin-right: 4px;
         }
 
         &::-webkit-scrollbar-track {
@@ -51,6 +54,8 @@
     }
     &__profile{
         margin-right: 12px;
+        width: 48px;
+        height: 48px;
     }
     &__info{
         display: flex;
@@ -62,7 +67,7 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        align-items: center;
+        align-items: flex-start;
     
     }
     &__name, &__gender-age{
@@ -80,7 +85,7 @@
     &__more{
         width: 1.125rem;
         height: .1875rem;
-        // margin-right: 10px;
+        margin-right: 20px;
     }
 }
 			
