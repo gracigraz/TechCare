@@ -1,9 +1,6 @@
-export interface BloodPressure {
-    systolic: {
-      value: number;
-      levels: string;
-    };
-    diastolic: {
+
+  interface BloodPressure {
+    [key: string]: {
       value: number;
       levels: string;
     };
@@ -50,3 +47,4 @@ export interface BloodPressure {
   export interface PatientsProps {
     patients: Patient[];
   }
+

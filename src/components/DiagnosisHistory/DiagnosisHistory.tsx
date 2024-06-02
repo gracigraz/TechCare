@@ -19,13 +19,11 @@ interface DiagnosisHistoryProps {
 }
 
 const DiagnosisHistory: React.FC<DiagnosisHistoryProps> = ({patient}) => {
+	if (!patient || patient.diagnosis_history.length === 0) return <div>No patient data available</div>;
 
-    if (!patient || patient.diagnosis_history.length === 0) return <div>No patient data available</div>;
+	// patient.diagnosis_history is an array with at least one entry
+	const latestDiagnosis = patient.diagnosis_history[0];
 
-    // Assuming patient.diagnosis_history is an array with at least one entry
-    const latestDiagnosis = patient.diagnosis_history[0];
-	//if bpm or f
-	//if lower or higher add an icon
 	return (
 		<div className="history">
 			<h2 className="history__heading">Patients</h2>
@@ -38,33 +36,27 @@ const DiagnosisHistory: React.FC<DiagnosisHistoryProps> = ({patient}) => {
 							<img className="history__icon" src={expand} alt="expan more options" />
 						</div>
 					</div>
-					{/* <div className="history__graph"></div> */}
 					<Graph />
 				</div>
-				<div className="history__right-section">
-					<div className="history__blood-pressure history__blood-pressure--border">
-						<div className="history__type-container">
-							<div className="history__data-point history__data-point--pink"></div>
-							<span className="history__type">Systolic</span>
-						</div>
-						<p className="history__pressure-value">160</p>
-						<div className="history__result">
-							<img className="history__icon" src={high} alt="High level" />
-							<span className="history__pressure-level">Higher than Average</span>
-						</div>
-					</div>
-					<div className="history__blood-pressure">
-						<div className="history__type-container">
-							<div className="history__data-point history__data-point--purple"></div>
-							<span className="history__type">Diastolic</span>
-						</div>
-						<p className="history__pressure-value">78</p>
-						<div className="history__result">
-							<img className="history__icon" src={low} alt="Low level" />
-							<span className="history__pressure-level">Lower than Average</span>
-						</div>
-					</div>
-				</div>
+                <div className="history__right-section">
+                    {Object.keys(latestDiagnosis.blood_pressure).map((key) => (
+                        <div className={`history__blood-pressure ${key === 'systolic' ? 'history__blood-pressure--border' : ''}`}>
+                        <div className="history__type-container">
+                            <div className={`history__data-point history__data-point--${key === 'systolic' ? 'pink' : 'purple'}`}></div>
+                            <span className="history__type">{key}</span>
+                        </div>
+                        <p className="history__pressure-value">{latestDiagnosis.blood_pressure[key].value}</p>
+                        <div className="history__result">
+                            <img
+                            className="history__icon"
+                            src={latestDiagnosis.blood_pressure[key].levels.includes("Higher") ? high : low}
+                            alt={latestDiagnosis.blood_pressure[key].levels}
+                            />
+                            <span className="history__pressure-level">{latestDiagnosis.blood_pressure[key].levels}</span>
+                        </div>
+                        </div>
+                    ))}
+                    </div>
 			</div>
 
 			<div className="history__cards">
@@ -74,7 +66,7 @@ const DiagnosisHistory: React.FC<DiagnosisHistoryProps> = ({patient}) => {
 							iconSrc={respiratory}
 							iconAlt="Respiratory Rate"
 							title="Respiratory Rate"
-                            value={latestDiagnosis.respiratory_rate.value.toString()}
+							value={latestDiagnosis.respiratory_rate.value.toString()}
 							lowLevelIconSrc={low}
 							highLevelIconSrc={high}
 							level={latestDiagnosis.respiratory_rate.levels.toString()}
@@ -92,7 +84,7 @@ const DiagnosisHistory: React.FC<DiagnosisHistoryProps> = ({patient}) => {
 							iconSrc={heartBPM}
 							iconAlt="Heart Rate"
 							title="Heart BPM"
-                            value={latestDiagnosis.heart_rate.value.toString()}
+							value={latestDiagnosis.heart_rate.value.toString()}
 							lowLevelIconSrc={low}
 							highLevelIconSrc={high}
 							level={latestDiagnosis.heart_rate.levels.toString()}

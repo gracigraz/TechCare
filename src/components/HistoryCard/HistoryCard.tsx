@@ -15,10 +15,14 @@ const HistoryCard: React.FC<HistoryCardProps> = ({iconSrc, iconAlt, title, value
 	let cardClass = "card";
 	if (title.toLowerCase() === "respiratory rate") {
 		cardClass += " card--blue";
+        value += " bpm";
 	} else if (title.toLowerCase() === "temperature") {
 		cardClass += " card--orange";
+        value += "°F";
 	} else if (title.toLowerCase() === "heart bpm") {
 		cardClass += " card--pink";
+        value += " bpm";
+        
 	}
 	return (
 		<div className={cardClass}>
