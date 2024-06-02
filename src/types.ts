@@ -1,6 +1,17 @@
 
-  interface BloodPressure {
-    [key: string]: {
+  // export interface BloodPressure {
+  //   [key: string]: {
+  //     value: number;
+  //     levels: string;
+  //   };
+  // }
+
+  export interface BloodPressure {
+    systolic: {
+      value: number;
+      levels: string;
+    };
+    diastolic: {
       value: number;
       levels: string;
     };
