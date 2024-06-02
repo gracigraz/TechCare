@@ -5,15 +5,25 @@ import "./DiagnosisHistory.scss";
 import low from "../../assets/icons/arrow_down.svg";
 import high from "../../assets/icons/arrow_up.svg";
 import expand from "../../assets/icons/expand.svg";
-// import heartBPM from '../../assets/icons/heartBPM.svg'
+import heartBPM from "../../assets/icons/heartBPM.svg";
 import respiratory from "../../assets/icons/respiratory_rate.svg";
+import temperature from "../../assets/icons/temperature.svg";
 import {Graph} from "../Graph/Graph";
-// import temperature from "../../assets/icons/temperature.svg"
+import {Patient} from "../../types";
+
 // import arrow_up from "../../assets/icons/arrow_up.svg"
 // import arrow_down from "../../assets/icons/arrow_down.svg"
 import HistoryCard from "../HistoryCard/HistoryCard";
+interface DiagnosisHistoryProps {
+	patient: Patient | undefined;
+}
 
-const DiagnosisHistory: React.FC = () => {
+const DiagnosisHistory: React.FC<DiagnosisHistoryProps> = ({patient}) => {
+
+    if (!patient || patient.diagnosis_history.length === 0) return <div>No patient data available</div>;
+
+    // Assuming patient.diagnosis_history is an array with at least one entry
+    const latestDiagnosis = patient.diagnosis_history[0];
 	//if bpm or f
 	//if lower or higher add an icon
 	return (
@@ -58,26 +68,37 @@ const DiagnosisHistory: React.FC = () => {
 			</div>
 
 			<div className="history__cards">
-				<HistoryCard
-					iconSrc={respiratory}
-					iconAlt="Respiratory Rate"
-					title="Respiratory Rate"
-					value="20 bpm"
-					lowLevelIconSrc={low}
-					highLevelIconSrc={high}
-					level="normal"
-				/>
-				{/* <div className="history__card">
-                    <img className="history__icon" src={respiratory} alt="Respiratory Rate" />
-                    <div className="history__info">
-                        <p className="history__title">Respiratory Rate</p>
-                        <p className="history__value">20 bpm</p>
-                    </div>
-                 
-                    <img className="history__level-icon" src={low} alt="low level"/>
-                    <img className="history__level-icon" src={high} alt="high level"/>
-                    <span className="history__level">normal</span>
-                </div> */}
+				{patient && (
+					<>
+						<HistoryCard
+							iconSrc={respiratory}
+							iconAlt="Respiratory Rate"
+							title="Respiratory Rate"
+                            value={latestDiagnosis.respiratory_rate.value.toString()}
+							lowLevelIconSrc={low}
+							highLevelIconSrc={high}
+							level={latestDiagnosis.respiratory_rate.levels.toString()}
+						/>
+						<HistoryCard
+							iconSrc={temperature}
+							iconAlt="Thermometer"
+							title="Temperature"
+							value={latestDiagnosis.temperature.value.toString()}
+							lowLevelIconSrc={low}
+							highLevelIconSrc={high}
+							level={latestDiagnosis.temperature.levels.toString()}
+						/>
+						<HistoryCard
+							iconSrc={heartBPM}
+							iconAlt="Heart Rate"
+							title="Heart BPM"
+                            value={latestDiagnosis.heart_rate.value.toString()}
+							lowLevelIconSrc={low}
+							highLevelIconSrc={high}
+							level={latestDiagnosis.heart_rate.levels.toString()}
+						/>
+					</>
+				)}
 			</div>
 		</div>
 	);

@@ -65,7 +65,7 @@ const Home: React.FC = () => {
 			<main className="home">
 				<Patients patients={patientsData} />
 				<section className="home__diagnosis-info">
-					<DiagnosisHistory />
+					<DiagnosisHistory patient={jessicaTaylor} />
 					<DiagnosisList patient={jessicaTaylor} />
 				</section>
 				<section className="home__patient-info">

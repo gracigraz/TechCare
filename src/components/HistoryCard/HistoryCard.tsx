@@ -12,16 +12,26 @@ interface HistoryCardProps {
 }
 
 const HistoryCard: React.FC<HistoryCardProps> = ({iconSrc, iconAlt, title, value, lowLevelIconSrc, highLevelIconSrc, level}) => {
+	let cardClass = "card";
+	if (title.toLowerCase() === "respiratory rate") {
+		cardClass += " card--blue";
+	} else if (title.toLowerCase() === "temperature") {
+		cardClass += " card--orange";
+	} else if (title.toLowerCase() === "heart bpm") {
+		cardClass += " card--pink";
+	}
 	return (
-		<div className="card">
-			<img className="card_icon" src={iconSrc} alt={iconAlt} />
-			<div className="card_info">
-				<p className="card_title">{title}</p>
-				<p className="card_value">{value}</p>
+		<div className={cardClass}>
+			<img className="card__icon" src={iconSrc} alt={iconAlt} />
+			<div className="card__info">
+				<p className="card__title">{title}</p>
+				<p className="card__value">{value}</p>
 			</div>
-			<img className="card_level-icon" src={lowLevelIconSrc} alt="low level" />
-			<img className="card_level-icon" src={highLevelIconSrc} alt="high level" />
-			<span className="card__level">{level}</span>
+			<div className="card__levels-wrapper">
+				{level.includes("Lower") && <img className="card__level-icon" src={lowLevelIconSrc} alt="low level" />}
+				{level.includes("Higher") && <img className="card__level-icon" src={highLevelIconSrc} alt="high level" />}
+				<span className="card__level">{level}</span>
+			</div>
 		</div>
 	);
 };
